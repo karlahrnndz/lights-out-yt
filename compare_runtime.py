@@ -23,7 +23,7 @@ def random_grid(rows: int, cols: int) -> List[List[int]]:
     """All lights on."""
     return [[1 for _ in range(cols)] for _ in range(rows)]
 
-def time_solver(solver_func, sizes=[5, 10, 20, 30], trials=2):
+def time_solver(solver_func, sizes=[5, 10, 20, 30, 40, 50, 100, 150, 200, 250, 300], trials=2):
     results = {}
     for n in sizes:
         rows = cols = n
@@ -50,5 +50,5 @@ galois_times = time_solver(solve_with_galois)
 print("\nTiming NumPy CPU version (V2):")
 numpy_times = time_solver(solve_with_numpy_cpu)
 
-print("\nTiming CuPy GPU version (V3):")
-cupy_times = time_solver(solve_with_cupy_gpu)
+# print("\nTiming CuPy GPU version (V3):")
+# cupy_times = time_solver(solve_with_cupy_gpu)

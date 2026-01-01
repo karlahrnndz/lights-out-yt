@@ -1,6 +1,7 @@
 import numpy as np
 from typing import List
 import random
+import time
 
 # ============================================================
 # Helper conversions between Python lists and NumPy arrays
@@ -190,21 +191,27 @@ def print_grid(grid: List[List[int]]) -> None:
         print(" ".join(str(cell) for cell in row))
 
 if __name__ == "__main__":
-    rows, cols = 5, 5
+    rows, cols = 200, 200
 
     # initial_grid = random_grid(rows, cols)
     initial_grid = [[1 for _ in range(cols)] for _ in range(rows)]
     final_grid = [[0] * cols for _ in range(rows)]  # target: all lights off
 
-    print("Initial grid:")
-    print_grid(initial_grid)
+    if max(rows, cols) <= 20:
+        print("Initial grid:")
+        print_grid(initial_grid)
 
+    start = time.time()
     solutions = solve_with_numpy_cpu(initial_grid, final_grid)
+    end = time.time()
+    print(end - start)
 
     if not solutions:
         print("\nNo solution exists.")
-    else:
+    elif max(rows, cols) <= 20:
         print(f"\n{len(solutions)} solution(s) found:")
         for i, sol in enumerate(solutions, 1):
             print(f"\nSolution {i}:")
             print_grid(sol)
+    else:
+        print(f"\n{len(solutions)} solution(s) found.")
