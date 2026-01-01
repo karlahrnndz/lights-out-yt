@@ -38,7 +38,7 @@ def build_toggle_matrix(rows: int, cols: int, GF2) -> GF2:
 # High-level solver using Galois
 # ============================================================
 
-def solve_lights_out(initial_grid: List[List[int]], final_grid: List[List[int]]) -> List[List[List[int]]]:
+def solve_with_galois(initial_grid: List[List[int]], final_grid: List[List[int]]) -> List[List[List[int]]]:
     """
     Solve the Lights Out puzzle using Galois GF(2) linear algebra.
     Returns a list of all solutions (if any exist).
@@ -88,7 +88,7 @@ if __name__ == "__main__":
     print("Initial grid:")
     print_grid(initial_grid)
 
-    solutions = solve_lights_out(initial_grid, final_grid)
+    solutions = solve_with_galois(initial_grid, final_grid)
 
     if not solutions:
         print("\nNo solution exists.")

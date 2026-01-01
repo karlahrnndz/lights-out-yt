@@ -154,7 +154,7 @@ def gaussian_elimination(matrix: np.ndarray, rhs: np.ndarray) -> List[np.ndarray
 # High-level solver
 # ============================================================
 
-def solve_lights_out(
+def solve_with_numpy_cpu(
     initial_grid: List[List[int]],
     final_grid: List[List[int]]
 ) -> List[List[List[int]]]:
@@ -199,7 +199,7 @@ if __name__ == "__main__":
     print("Initial grid:")
     print_grid(initial_grid)
 
-    solutions = solve_lights_out(initial_grid, final_grid)
+    solutions = solve_with_numpy_cpu(initial_grid, final_grid)
 
     if not solutions:
         print("\nNo solution exists.")

@@ -129,7 +129,7 @@ def gaussian_elimination(matrix: cp.ndarray, rhs: cp.ndarray) -> List[cp.ndarray
 # High-level GPU solver
 # ============================================================
 
-def solve_lights_out(initial_grid: List[List[int]], final_grid: List[List[int]]) -> List[List[List[int]]]:
+def solve_with_cupy_gpu(initial_grid: List[List[int]], final_grid: List[List[int]]) -> List[List[List[int]]]:
     rows, cols = len(initial_grid), len(initial_grid[0])
 
     init_arr = grid_to_array(initial_grid)
@@ -167,7 +167,7 @@ if __name__ == "__main__":
     print("Initial grid:")
     print_grid(initial_grid)
 
-    solutions = solve_lights_out(initial_grid, final_grid)
+    solutions = solve_with_cupy_gpu(initial_grid, final_grid)
 
     if not solutions:
         print("\nNo solution exists.")
