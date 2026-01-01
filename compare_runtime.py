@@ -1,30 +1,14 @@
 import time
-import random
 from typing import List
-
-# from cupy_version import solve_with_cupy_gpu
-# from galois_version import solve_with_galois
 from lights_out import solve_lights_out
-from numpy_numba import solve_with_numpy_numba
 
 
-# -----------------------------
-# Assume these functions exist:
-# -----------------------------
-# solve_with_galois(initial_grid, final_grid)
-# solve_with_numpy_cpu(initial_grid, final_grid)
-# solve_with_cupy_gpu(initial_grid, final_grid)
-
-# Example placeholders:
-# from version1_galois import solve_lights_out as solve_with_galois
-# from version2_numpy import solve_lights_out as solve_with_numpy_cpu
-# from version3_cupy import solve_lights_out as solve_with_cupy_gpu
 
 def random_grid(rows: int, cols: int) -> List[List[int]]:
     """All lights on."""
     return [[1 for _ in range(cols)] for _ in range(rows)]
 
-def time_solver(solver_func, sizes=list(range(10, 101, 10)), trials=2):
+def time_solver(solver_func, sizes=list(range(10, 301, 10)), trials=3):
     results = {}
     for n in sizes:
         rows = cols = n
